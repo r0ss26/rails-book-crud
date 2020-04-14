@@ -8,12 +8,13 @@ class BooksController < ApplicationController
 
   # Create
   def create
-    id = (@data.length + 1).to_s
-    @data.push({
-      "id": id,
+    book = {
+      "id": (@data.length + 1).to_s,
       "title": params[:title],
       "author": params[:author]
-    })
+    }
+    @data.push(book)
+    
     render json: @data
   end
 
@@ -43,13 +44,6 @@ class BooksController < ApplicationController
       return book if book[:id] == id
     end
     return {}
-  end
-
-  def get_book_index(id)
-    @data.each_with_index do |book, i|
-      return i if book[:id] == id
-    end
-    return -1
   end
 
   private

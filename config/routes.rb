@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   delete "/books/:id", to: "books#destroy" # Delete
 
   get "/products", to: "products#index"
+
+  get "/", to: "pages#home", as: :home
+  get "/about", to: "pages#about", as: :about
 end

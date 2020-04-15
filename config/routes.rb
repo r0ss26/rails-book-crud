@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get "/book/:id", to: "books#show" # Read
   put "/books/:id", to: "books#update" # Update
   delete "/books/:id", to: "books#destroy" # Delete
+
+  get "/products", to: "products#index"
 end
